@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Button from "../../UI/Button/Button";
-import "./CourseInput.css";
+import styles from "./CourseInput.module.css";
 
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
@@ -27,7 +27,11 @@ const CourseInput = (props) => {
   return (
     <form onSubmit={formSubmitHandler}>
       {/* an example of how to add dynamic classes - use backtics and put javascript in ${} */}
-      <div className={`form-control ${!isValid ? "invalid" : ""}`}>
+      {/* <div className={`form-control ${!isValid ? "invalid" : ""}`}> */}
+      {/* to add class names with dashes we need to put them in [] (styles['class-name'])*/}
+      <div
+        className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
+      >
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </div>
